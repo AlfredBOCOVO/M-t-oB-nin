@@ -1,0 +1,115 @@
+CAHIER DES CHARGES 
+ 
+1. PRÉSENTATION DU PROJET 
+Intitulé : 
+Explorateur de Données Météo (API) Description : 
+Application Python permettant : 
+•	D’interroger une API météo ; 
+•	De récupérer les données climatiques de villes choisies ; 
+•	De stocker les résultats ; 
+•	D’afficher des statistiques ; 
+•	De comparer plusieurs villes. 
+Finalité : 
+Aider les utilisateurs à consulter rapidement les conditions météo et effectuer des comparaisons climatiques entre différentes zones. 
+ 
+   
+2.  
+2.1 Besoin 
+Aujourd’hui, l’accès rapide aux informations météorologiques est essentiel pour les déplacements, activités agricoles, voyages et planifications diverses. 
+L’application devra fournir des données météo fiables en temps réel. 
+2.2 Objectifs 
+•	Concevoir une application Python orientée objet. 
+•	Utiliser une API externe. 
+•	Manipuler les données JSON. 
+•	Stocker les résultats localement. 
+•	Générer des statistiques comparatives. 
+•	Créer une interface simple d’utilisation. 
+2.3 Utilisateurs cibles 
+•	Étudiants 
+•	Voyageurs 
+•	Agriculteurs 
+•	Toute personne souhaitant consulter la météo 
+2.4 Contraintes 
+•	Connexion Internet nécessaire pour interroger l’API. 
+•	API gratuite avec limites de requêtes. 
+•	Bonne gestion des erreurs réseau. 
+•	Interface claire et rapide. 
+ 
+   
+3.  
+3.1 Langage de programmation 
+• Python 
+ 
+ 
+3.2 Bibliothèques prévues 
+•	Requests → requêtes HTTP 
+•	JSON → lecture des données JSON 
+•	Matplotlib → graphiques statistiques 
+•	Tkinter → interface graphique (optionnel) 
+3.3 API utilisée Exemple : 
+• Open-Meteo 
+3.4 Architecture POO Classes principales : 
+Classe Ville Attributs : 
+•	Nom 
+•	Pays 
+•	Température 
+•	Humidité 
+•	Pression 
+ 
+Classe MeteoAPI Méthodes : 
+•	envoyer_requete() 
+•	recuperer_donnees() 
+•	parser_json() 
+Classe Statistiques Méthodes : 
+•	moyenne_temperature() 
+•	ville_plus_chaude() 
+•	ville_plus_froide() 
+•	comparer_villes() Classe Application Méthodes : 
+•	Menu () 
+•	Afficher_resultats () 
+•	Sauvegarder () 
+ 
+  
+ 
+4.	FONCTIONNALITÉS PRINCIPALES 
+•	Rechercher la météo d’une ville. 
+•	Afficher température actuelle. 
+•	Afficher humidité. 
+•	Afficher vitesse du vent. 
+•	Comparer plusieurs villes. 
+•	Historique des recherches. 
+•	Sauvegarde locale des données. 
+•	Graphiques météo. 
+ 
+  
+ 
+5.	MAQUETTE DU RÉSULTAT FINAL 
+================================= 
+   EXPLORATEUR MÉTÉO PYTHON 
+================================= 
+1.	Rechercher une ville 
+2.	Comparer deux villes 
+3.	Voir statistiques 
+4.	Historique 
+5.	Quitter 
+ 
+   
+6.	PLAN DE RÉALISATION Étape 1 
+Analyse du besoin 
+Étape 2 
+Choix de l’API 
+Étape 3 
+Création des classes Python 
+Étape 4 
+Connexion à l’API 
+ 
+Étape 5 
+Traitement JSON 
+Étape 6 
+Affichage des résultats 
+Étape 7 
+Tests et corrections 
+ 
+   
+7. RÉSULTAT ATTENDU 
+À la fin du projet, nous disposerons d’une application Python fonctionnelle capable de récupérer les données météo réelles, les analyser et fournir des comparaisons utiles entre plusieurs villes. 
