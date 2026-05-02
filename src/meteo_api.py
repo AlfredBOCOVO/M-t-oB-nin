@@ -33,29 +33,25 @@ class MeteoAPI:
                 return self.cache[ville_nom]["data"]
 
         try:
-            # Étape 1 : Coordonnées
             lat, lon, pays = self.obtenir_coordonnees(ville_nom)
-            if lat is None:
-                return None
+            if lat is None: return None
 
-            # Étape 2 : Météo actuelle
             url = "https://api.open-meteo.com/v1/forecast"
             params = {
                 "latitude": lat,
                 "longitude": lon,
                 "current_weather": True,
-                "hourly": "temperature_2m,relativehumidity_2m,windspeed_10m,pressure_msl"
+                "hourly": "relativehumidity_2m,pressure_msl" # On demande humidité et pression
             }
             resp = self.session.get(url, params=params, timeout=10)
             data = resp.json()
 
             current = data.get("current_weather", {})
-            
-            # Récupérer l'humidité depuis hourly (première heure)
-            humidite = None
-            if "hourly" in data and "relativehumidity_2m" in data["hourly"]:
-                if data["hourly"]["relativehumidity_2m"]:
-                    humidite = data["hourly"]["relativehumidity_2m"][0]
+            hourly = data.get("hourly", {})
+
+            # Extraction sécurisée des données horaires (index 0 = heure actuelle)
+            humidite = hourly.get("relativehumidity_2m", [None])[0]
+            pression = hourly.get("pressure_msl", [None])[0]
 
             resultat = {
                 "nom": ville_nom,
@@ -63,7 +59,7 @@ class MeteoAPI:
                 "temperature": current.get("temperature"),
                 "vitesse_vent": current.get("windspeed"),
                 "humidite": humidite,
-                "pression": None,
+                "pression": pression, # Maintenant on a la vraie pression !
                 "latitude": lat,
                 "longitude": lon
             }

@@ -1,0 +1,11 @@
+import pytest
+from src.ville import Ville
+def test_creation_ville():
+ville = Ville("Cotonou", "BJ")
+assert ville.nom == "Cotonou"
+assert ville.pays == "BJ"
+def test_ville_to_dict():
+ville = Ville("Paris", "FR")
+dico = ville.to_dict()
+assert isinstance(dico, dict)
+assert dico["nom"] == "Paris"
